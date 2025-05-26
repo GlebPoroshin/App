@@ -14,6 +14,33 @@ public class UserController {
     private final List<User> users = new ArrayList<>();
     private final AtomicLong counter = new AtomicLong();
 
+    public UserController() {
+        addTestUsers();
+    }
+
+    private void addTestUsers() {
+        User u1 = new User();
+        u1.setId(counter.incrementAndGet());
+        u1.setUsername("user1");
+        u1.setEmail("user1@example.com");
+        u1.setFullName("User One");
+        users.add(u1);
+
+        User u2 = new User();
+        u2.setId(counter.incrementAndGet());
+        u2.setUsername("user2");
+        u2.setEmail("user2@example.com");
+        u2.setFullName("User Two");
+        users.add(u2);
+
+        User u3 = new User();
+        u3.setId(counter.incrementAndGet());
+        u3.setUsername("user3");
+        u3.setEmail("user3@example.com");
+        u3.setFullName("User Three");
+        users.add(u3);
+    }
+
     @GetMapping
     public List<User> getAllUsers() {
         return users;

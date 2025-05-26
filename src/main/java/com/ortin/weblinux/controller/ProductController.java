@@ -14,6 +14,33 @@ public class ProductController {
     private final List<Product> products = new ArrayList<>();
     private final AtomicLong counter = new AtomicLong();
 
+    public ProductController() {
+        addTestProducts();
+    }
+
+    private void addTestProducts() {
+        Product p1 = new Product();
+        p1.setId(counter.incrementAndGet());
+        p1.setName("Test Product 1");
+        p1.setDescription("Description 1");
+        p1.setPrice(10.0);
+        products.add(p1);
+
+        Product p2 = new Product();
+        p2.setId(counter.incrementAndGet());
+        p2.setName("Test Product 2");
+        p2.setDescription("Description 2");
+        p2.setPrice(20.0);
+        products.add(p2);
+
+        Product p3 = new Product();
+        p3.setId(counter.incrementAndGet());
+        p3.setName("Test Product 3");
+        p3.setDescription("Description 3");
+        p3.setPrice(30.0);
+        products.add(p3);
+    }
+
     @GetMapping
     public List<Product> getAllProducts() {
         return products;
